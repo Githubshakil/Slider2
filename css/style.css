@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.slider{
+    position: relative;
+    background-color: blue;
+    height: 500px;
+    max-width: 800px;
+    margin: 50px auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.slides{
+    display: flex;
+    
+}
+
+img{
+    width: 800px;
+    height: 500px;
+}
+
+.prev, .next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 0, 0, 0.329);
+    color: azure;
+    border: 0px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 40px;
+    transition: all 0.3s;
+    border-radius: 50px;
+
+}
+
+.prev{
+    left: 10px;
+}
+
+.next{
+    right: 10px;
+}
+
+.prev:hover, .next:hover{
+    background: red;
+    color: black;
+}
+
+.dots{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    display:flex;
+    gap: 10px;
+    
+}
+
+
+
+.dot{
+    width: 15px;
+    height: 15px;
+    background: rgba(255, 0, 0, 0.384);
+    left: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.active{
+    background: rgb(199, 198, 198);
+}
