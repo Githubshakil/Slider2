@@ -63,3 +63,70 @@ prevButton.addEventListener('click',function(){
 
 
 
+// up & Down scroll sliper
+
+
+
+
+document.addEventListener('DOMContentLoaded', function(){
+    let slides2 = document.querySelector('.slides2')
+    let slide2 = document.querySelectorAll('.slide2')
+    let prevButton2 = document.querySelector('.prev2')
+    let nextButton2 = document.querySelector('.next2')
+    let slideCount2 = document.querySelector('.slideCount2')
+    let dotsContainer2 = document.querySelector('.dots2')
+
+
+// console.log(slide2.length);
+
+let currentSlide2 = 0;
+
+for(let i = 0; i < slide2.length; i++){
+   let creatDot2 = document.createElement('div');
+   if(i===0){
+    creatDot2.classList.add('active2');
+   }
+   creatDot2.classList.add('dot2')
+   creatDot2.setAttribute("data-index",i)
+   dotsContainer2.appendChild(creatDot2)
+   
+}
+let dots2 = document.querySelectorAll('.dot2')
+
+function updateSlider2(index){
+    if(index >= slide2.length){
+        currentSlide2 = 0;
+    }else if(index < 0){
+        currentSlide2 = slide2.length - 1;
+    }else{
+        currentSlide2 = index;
+    }
+    slides2.style.transform = `translateY(${-currentSlide2 * 100}%)`;
+    dots2.forEach((dot2) => dot2.classList.remove('active2'));
+    dots2[currentSlide2].classList.add('active2');
+    slideCount2.innerHTML =`${currentSlide2 + 1} / ${slide2.length}`;
+}
+
+nextButton2.addEventListener('click',function(){
+// console.log('next');
+updateSlider2(currentSlide2 + 1);
+
+})
+prevButton2.addEventListener('click',function(){
+    // console.log('prev');
+    updateSlider2(currentSlide2 - 1);
+    
+    })
+
+    dots2.forEach((dot) =>{
+        dot.addEventListener('click',function(){
+            // console.log(typeof +dot.getAttribute('data-index'));
+            updateSlider2(+dot.getAttribute('data-index'));
+            
+        })
+    })
+    setInterval(()=>{
+        updateSlider2(currentSlide2 + 1);
+    },2500)
+    
+    })
