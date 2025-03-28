@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
     let dotsContainer = document.querySelector('.dots')
 
 
-console.log(slide.length);
+// console.log(slide.length);
 
 let currentSlide = 0;
 
